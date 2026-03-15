@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gps-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: gps
+
+  template:
+    metadata:
+      labels:
+        app: gps
+
+    spec:
+      containers:
+      - name: gps-container
+        image: gps-microservice-131
+        ports:
+        - containerPort: 4001
